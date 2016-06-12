@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ import static android.text.format.DateUtils.FORMAT_SHOW_TIME;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.text.format.DateUtils.FORMAT_SHOW_YEAR;
 import static android.text.format.DateUtils.formatDateTime;
+import static android.text.format.DateUtils.getRelativeTimeSpanString;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         long now = System.currentTimeMillis();
         StringBuilder builder = new StringBuilder();
 
+        builder.append("DateUtils.formatDateTime demo\n\n");
+
         builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_TIME | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY | FORMAT_ABBREV_ALL\n");
         builder.append(formatDateTime(this, now, FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY | FORMAT_ABBREV_ALL));
         builder.append("\n\n");
@@ -43,13 +47,41 @@ public class MainActivity extends AppCompatActivity {
         builder.append(formatDateTime(this, now, FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY));
         builder.append("\n\n");
 
-        builder.append("FORMAT_NUMERIC_DATE\n");
-        builder.append(formatDateTime(this, now, FORMAT_NUMERIC_DATE));
+        builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_NUMERIC_DATE\n");
+        builder.append(formatDateTime(this, now, FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_NUMERIC_DATE));
         builder.append("\n\n");
 
         builder.append("FORMAT_SHOW_TIME\n");
         builder.append(formatDateTime(this, now, FORMAT_SHOW_TIME));
         builder.append("\n\n");
+
+        builder.append("DateUtils.getRelativeTimeSpanString demo\n\n");
+
+        builder.append("Now\n");
+        builder.append(getRelativeTimeSpanString(now));
+        builder.append("\n\n");
+
+        builder.append("One minute ago\n");
+        builder.append(getRelativeTimeSpanString(now - DateUtils.MINUTE_IN_MILLIS));
+        builder.append("\n\n");
+
+        builder.append("One hour ago\n");
+        builder.append(getRelativeTimeSpanString(now - DateUtils.HOUR_IN_MILLIS));
+        builder.append("\n\n");
+
+        builder.append("One day ago\n");
+        builder.append(getRelativeTimeSpanString(now - DateUtils.DAY_IN_MILLIS));
+        builder.append("\n\n");
+
+        builder.append("Three days ago\n");
+        builder.append(getRelativeTimeSpanString(now - DateUtils.DAY_IN_MILLIS * 3));
+        builder.append("\n\n");
+
+        builder.append("One week ago\n");
+        builder.append(getRelativeTimeSpanString(now - DateUtils.WEEK_IN_MILLIS));
+        builder.append("\n\n");
+
+        builder.append("DateUtils API demo\n\n");
 
         builder.append("DateFormat.getLongDateFormat\n");
         builder.append(DateFormat.getLongDateFormat(this).format(new Date(now)));
