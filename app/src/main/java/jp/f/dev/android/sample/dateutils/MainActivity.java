@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         builder.append("DateUtils.formatDateTime demo\n\n");
 
-        builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_TIME | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY | FORMAT_ABBREV_ALL\n");
+        builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY | FORMAT_ABBREV_ALL\n");
         builder.append(formatDateTime(this, now, FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY | FORMAT_ABBREV_ALL));
         builder.append("\n\n");
 
-        builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_TIME | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY\n");
+        builder.append("FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY\n");
         builder.append(formatDateTime(this, now, FORMAT_SHOW_YEAR | FORMAT_SHOW_DATE | FORMAT_SHOW_WEEKDAY));
         builder.append("\n\n");
 
