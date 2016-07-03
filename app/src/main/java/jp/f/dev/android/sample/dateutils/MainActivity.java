@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         builder.append(getRelativeTimeSpanString(now - DateUtils.WEEK_IN_MILLIS));
         builder.append("\n\n");
 
-        builder.append("DateUtils API demo\n\n");
+        builder.append("DateFormat API demo\n\n");
 
         builder.append("DateFormat.getLongDateFormat\n");
         builder.append(DateFormat.getLongDateFormat(this).format(new Date(now)));
